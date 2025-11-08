@@ -125,8 +125,6 @@ class DocumentEditor {
 private:
     Document* document;
     Persistence* storage;
-    string renderedDocument;
-
 public:
     DocumentEditor(Document* document, Persistence* storage) {
         this->document = document;
