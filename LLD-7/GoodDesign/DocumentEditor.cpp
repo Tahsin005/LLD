@@ -152,7 +152,7 @@ public:
     void saveDocument() {
         string renderedDocument;
         for (auto element : document->getElements()) {
-            renderedDocument += element->render() + "\n";
+            renderedDocument += element->render();
         }
         storage->save(renderedDocument);
     }
