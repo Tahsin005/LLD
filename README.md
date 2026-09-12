@@ -8,7 +8,7 @@ A curated study guide, code reference, and video repository for mastering **Low-
 
 | # | Topic | Category | Video Lecture |
 |---|-------|----------|---------------|
-| 1 | **SOLID Principles** | Core Principles | [Watch Video](https://www.youtube.com/watch?v=UsNl8kcU4UA) |
+| 1 | **SOLID Principles** | Core Principles | [Part 1](https://www.youtube.com/watch?v=UsNl8kcU4UA), [Part 2](https://www.youtube.com/watch?v=hU9koy6A2I0) |
 | 2 | **Singleton** | Creational Pattern | [Watch Video](https://www.youtube.com/watch?v=CD3meit-WDc) |
 | 3 | **Factory Patterns** | Creational Pattern | [Watch Video](https://www.youtube.com/watch?v=dMK4TbG29fk&t=44s) |
 | 4 | **Builder** | Creational Pattern | [Watch Video](https://www.youtube.com/watch?v=G4Ntl9KzIxY) |
