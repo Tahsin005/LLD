@@ -2,18 +2,20 @@
 
 using namespace std;
 
-// Class Invariant of a parent class Object should not be broken by child class Object.
-// Hence child class can either maintain or strengthen the invariant but never narrows it down.
+// Sub class methods should not be allowed state changes What
+// Base class never allowed.
 
-// Invariant : Balance cannot be negative
 class BankAccount {
 protected:
     double balance;
+
 public:
     BankAccount(double b) {
         if (b < 0) throw invalid_argument("Balance can't be negative");
         balance = b;
     }
+
+    // History Constraint : Withdraw should be allowed
     virtual void withdraw(double amount) {
         if (balance - amount < 0) throw runtime_error("Insufficient funds");
         balance -= amount;
@@ -21,19 +23,19 @@ public:
     }
 };
 
-// Breaks invariant : Should not be allowed.
-class CheatAccount : public BankAccount {
+class FixedDepositAccount : public BankAccount {
 public:
-    CheatAccount(double b) : BankAccount(b) {}
+    FixedDepositAccount(double b) : BankAccount(b) {}
 
+    // LSP break! History constraint broke!
+    // Parent class behaviour change : Now withdraw is not allowed.
+    //This class will brake client code that relies on withdraw.
     void withdraw(double amount) override {
-        balance -= amount; // LSP break! Negative balance allowed
-        cout<< "Amount withdrawn. Remaining balance is " << balance << endl;
+        throw runtime_error("Withdraw not allowed in Fixed Deposit");
     }
 };
-
+    
 int main() {
     BankAccount* bankAccount = new BankAccount(100);
     bankAccount->withdraw(100);
 }
-    
